@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import MilestoneSubComponent from './feeds/MilestoneSubComponent';
 import StatusTrendComponent from './feeds/StatusTrendComponent';
 import DeltaSubsComponent from './feeds/DeltaSubsComponent';
+import VideoTopicsComponent from './feeds/VideoTopicsComponent';
 
 class Feed extends Component {
     render = () => {
@@ -26,11 +27,16 @@ class Feed extends Component {
                     newsItem={newsItem}
                 />
             )
-        } else {
+        } else if(newsItem.type ==='video-topics') {
             return (
-                <div>
-                    
-                </div>
+                <VideoTopicsComponent
+                    newsItem={newsItem}
+                />
+            )
+        } else {
+            console.log(newsItem);
+            return (
+                <div></div>
             )
         }
     }
