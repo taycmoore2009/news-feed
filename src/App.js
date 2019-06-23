@@ -1,20 +1,59 @@
-import React from 'react';
-import { Container, Header } from 'semantic-ui-react'
+import React, { Component } from "react";
+import { Modal, Container, Header, List } from 'semantic-ui-react';
+
+import FeedComponent from './components/FeedComponent';
+import PopupModal from './components/ModalComponent';
 
 import './App.css';
 
 import newsFeed from './news.json';
 
-function App() {
-  console.log(newsFeed);
-  return (
-    <div className="App">
-      <Container fluid>
-      <Header size='huge'>Your News Feed</Header>
-      
-      </Container>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      newsFeed: newsFeed,
+      modalOpen: false,
+      modalInfo: false
+    };
+  }
+
+  generateNews = () => {
+    var items = this.state.newsFeed.items.map((item, index) => {
+      return item.entity_type === 'feed' ? <FeedComponent newsItem={item} loadModal={this.loadModal}/> : null;
+    });
+  return <List selection celled> {items} </List>;
+  }
+  
+  loadModal = (feedInfo) => {
+    this.setState({
+      modalInfo: feedInfo,
+      modalOpen: true
+    })
+  }
+
+  closeModal = () => {
+    this.setState({
+      modalInfo: false,
+      modalOpen: false
+    })
+  }
+
+  render = () => {
+    const latestNews = this.generateNews();
+
+    return (
+      <div className="App">
+        <Container>
+          <Header size='huge'>Your News Feed</Header>
+          {latestNews}
+        </Container>
+        <Modal open={this.state.modalOpen} onClose={this.closeModal}>
+          {this.state.modalInfo ? <PopupModal/>: null}
+        </Modal>
+      </div>
+    );
+  }
 }
 
 export default App;

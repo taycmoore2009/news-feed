@@ -1,15 +1,25 @@
-import React from 'react';
-import { Container, Header } from 'semantic-ui-react'
-import './App.css';
+import React, { Component } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <Container fluid>
-      <Header size='medium'>Feed Item</Header>
-      </Container>
-    </div>
-  );
+import MilestoneSubComponent from './feeds/MilestoneSubComponent';
+
+class Feed extends Component {
+    render = () => {
+        const newsItem = this.props.newsItem;
+        if(newsItem.type === 'milestone-subs') {
+            return (
+                <MilestoneSubComponent 
+                    newsItem={newsItem}
+                    loadModal={this.props.loadModal}
+                />
+            );
+        } else {
+            return (
+                <div>
+                    
+                </div>
+            )
+        }
+    }
 }
 
-export default App;
+export default Feed;
