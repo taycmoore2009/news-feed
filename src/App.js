@@ -41,6 +41,7 @@ class App extends Component {
 
   render = () => {
     const latestNews = this.generateNews();
+    const modalInfo = this.state.modalInfo;
 
     return (
       <div className="App">
@@ -48,9 +49,7 @@ class App extends Component {
           <Header size='huge'>Your News Feed</Header>
           {latestNews}
         </Container>
-        <Modal open={this.state.modalOpen} onClose={this.closeModal}>
-          {this.state.modalInfo ? <PopupModal/>: null}
-        </Modal>
+        {modalInfo ? <PopupModal data={modalInfo} closeModal={this.closeModal}/>: null}
       </div>
     );
   }
