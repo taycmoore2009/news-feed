@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, List, Modal } from 'semantic-ui-react'
+import { Image, List } from 'semantic-ui-react'
 
 
 class Milestone extends Component {
