@@ -4,7 +4,8 @@ import MilestoneSubComponent from './feeds/MilestoneSubComponent';
 import StatusTrendComponent from './feeds/StatusTrendComponent';
 import DeltaSubsComponent from './feeds/DeltaSubsComponent';
 import VideoTopicsComponent from './feeds/VideoTopicsComponent';
-import ChannelOverlap from './feeds/ChannelOverlapComponents'
+import ChannelOverlapComponent from './feeds/ChannelOverlapComponent';
+import ChannelNewComponent from './feeds/ChannelNewComponent'
 
 class Feed extends Component {
     render = () => {
@@ -37,7 +38,13 @@ class Feed extends Component {
             )
         } else if(type ==='channel-overlap') {
             return (
-                <ChannelOverlap
+                <ChannelOverlapComponent
+                    newsItem={newsItem}
+                />
+            )
+        } else if(type ==='channel-new') {
+            return (
+                <ChannelNewComponent
                     newsItem={newsItem}
                 />
             )
