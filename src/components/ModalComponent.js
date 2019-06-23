@@ -15,7 +15,7 @@ class PopupModal extends Component {
                     </Header.Content>
                 </Header>
                 <Container text>
-                    <List>
+                    <List relaxed='very' divided>
                         {data.subscribers && 
                             <List.Item>Estimated Subscribers: {data.subscribers}</List.Item>
                         }

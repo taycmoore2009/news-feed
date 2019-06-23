@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, List } from 'semantic-ui-react'
+import { Image, List, Icon } from 'semantic-ui-react'
 
 
 class Milestone extends Component {
@@ -20,6 +20,9 @@ class Milestone extends Component {
                         Estimated Subs: {newsItem.est_subs}<br/>
                         {newsItem.message}
                     </List.Description>
+                </List.Content>
+                <List.Content floated='right'>
+                    <Icon name='expand arrows alternate'/>
                 </List.Content>
             </List.Item>
         );
