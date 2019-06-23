@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import MilestoneSubComponent from './feeds/MilestoneSubComponent';
+import StatusTrendComponent from './feeds/StatusTrendComponent';
 
 class Feed extends Component {
     render = () => {
@@ -12,6 +13,12 @@ class Feed extends Component {
                     loadModal={this.props.loadModal}
                 />
             );
+        } else if(newsItem.type === 'stats-trend') {
+            return (
+                <StatusTrendComponent
+                    newsItem={newsItem}
+                />
+            )
         } else {
             return (
                 <div>
