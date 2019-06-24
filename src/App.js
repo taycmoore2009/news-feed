@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Modal, Container, Header, List } from 'semantic-ui-react';
 
 import FeedComponent from './components/FeedComponent';
+import VideoComponent from './components/VideoComponent';
 import PopupModal from './components/ModalComponent';
 
 import './App.css';
@@ -20,7 +21,12 @@ class App extends Component {
 
   generateNews = () => {
     var items = this.state.newsFeed.items.map((item, index) => {
-      return item.entity_type === 'feed' ? <FeedComponent newsItem={item} loadModal={this.loadModal}/> : null;
+      if(item.entity_type === 'feed') {
+        return <FeedComponent index={index} newsItem={item} loadModal={this.loadModal}/>;
+      } else if(item.entity_type === 'video') {
+        return <VideoComponent index={index} newsItem={item} loadModal={this.loadModal} />;
+      }
+      return <div></div>
     });
   return <List selection celled> {items} </List>;
   }
