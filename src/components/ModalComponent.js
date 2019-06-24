@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, List, Header, Image, Icon, Container } from 'semantic-ui-react';
+import { Modal, List, Header, Image, Icon, Container, Divider } from 'semantic-ui-react';
 
 
 class PopupModal extends Component {
@@ -14,6 +14,7 @@ class PopupModal extends Component {
                         {data.id && <Header.Subheader>${data.id}</Header.Subheader>}
                     </Header.Content>
                 </Header>
+                <Divider hidden/>
                 <Container text>
                     <List relaxed='very' divided>
                         {data.channel_title && 
@@ -39,6 +40,7 @@ class PopupModal extends Component {
                         }
                     </List>
                 </Container>
+                <Divider hidden/>
             </Modal>
         );
     }
