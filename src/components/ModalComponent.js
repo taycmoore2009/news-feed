@@ -16,6 +16,9 @@ class PopupModal extends Component {
                 </Header>
                 <Container text>
                     <List relaxed='very' divided>
+                        {data.channel_title && 
+                            <List.Item>Author: {data.channel_title}</List.Item>
+                        }
                         {data.subscribers && 
                             <List.Item>Estimated Subscribers: {data.subscribers}</List.Item>
                         }
@@ -24,9 +27,6 @@ class PopupModal extends Component {
                         }
                         {data.mod_30_days && 
                             <List.Item>30 Day change in Subscribers: {data.mod_30_days}</List.Item>
-                        }
-                        {data.cms && 
-                            <List.Item>CMS: {data.cms}</List.Item>
                         }
                         {data.cms && 
                             <List.Item>CMS: {data.cms}</List.Item>

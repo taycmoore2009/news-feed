@@ -7,7 +7,6 @@ class Feed extends Component {
         const newsItem = this.props.newsItem;
         const type = newsItem.type;
         if(type === 'trending-video') {
-            console.log('trending');
             return (
                 <TrendingVideoComponent
                     newsItem={newsItem}
@@ -17,9 +16,6 @@ class Feed extends Component {
         }
         return (
             <div className="App">
-            <Container fluid>
-            <Header size='medium'>Video Item</Header>
-            </Container>
             </div>
         );
     }

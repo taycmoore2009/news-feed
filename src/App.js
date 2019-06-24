@@ -22,11 +22,11 @@ class App extends Component {
   generateNews = () => {
     var items = this.state.newsFeed.items.map((item, index) => {
       if(item.entity_type === 'feed') {
-        return <FeedComponent index={index} newsItem={item} loadModal={this.loadModal}/>;
+        return <FeedComponent key={index} newsItem={item} loadModal={this.loadModal}/>;
       } else if(item.entity_type === 'video') {
-        return <VideoComponent index={index} newsItem={item} loadModal={this.loadModal} />;
+        return <VideoComponent key={index} newsItem={item} loadModal={this.loadModal} />;
       }
-      return <div></div>
+      return <div key={index}></div>
     });
   return <List selection celled> {items} </List>;
   }
