@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Modal, Container, Header, List } from 'semantic-ui-react';
+import { Container, Header, List } from 'semantic-ui-react';
 
 import FeedComponent from './components/FeedComponent';
 import VideoComponent from './components/VideoComponent';
+import GenericItemComponent from './components/GenericItemComponent';
 import PopupModal from './components/ModalComponent';
 
 import './App.css';
@@ -25,8 +26,9 @@ class App extends Component {
         return <FeedComponent key={index} newsItem={item} loadModal={this.loadModal}/>;
       } else if(item.entity_type === 'video') {
         return <VideoComponent key={index} newsItem={item} loadModal={this.loadModal} />;
+      } else {
+        return <GenericItemComponent key={index} newsItem={item}/>
       }
-      return <div key={index}></div>
     });
   return <List selection celled> {items} </List>;
   }
